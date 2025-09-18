@@ -1,9 +1,0 @@
-{
-"rootDirectory": "frontend",
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
-    }
-  ]
-}  
