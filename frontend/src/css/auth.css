@@ -106,31 +106,7 @@ body {
   margin: 50px auto;
   text-align: center;
 }
-/* 
- .wheel {
-  margin: 2rem auto;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  border: 21px solid #fdfdfd;
-  background: conic-gradient(
-    #9210ce 0deg 36deg,
-    #a35baf 36deg 72deg,
-    #9210ce 72deg 108deg,
-    #a35baf 108deg 144deg,
-    #9210ce 144deg 180deg,
-    #a35baf 180deg 216deg,
-    #9210ce 216deg 252deg,
-    #a35baf 252deg 288deg,
-    #9210ce 288deg 324deg,
-    #a35baf 324deg 360deg
-  );
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} 
- */
+
 
 
  .wheel {
