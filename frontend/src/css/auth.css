@@ -173,23 +173,6 @@ body {
 }
 
 
-/* .wheel-pointer {
-  position: absolute;
-  top: 19px;  
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 25px solid #fff; 
-  z-index: 20;
-}
- */
-
-
-
-
 .wheel-label {
   position: absolute;
   top: 50%;
