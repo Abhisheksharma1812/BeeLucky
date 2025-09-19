@@ -324,11 +324,11 @@ body {
 
 
 .to-indigo-900 {
-  --tw-gradient-to: #020204  var(--tw-gradient-to-position);
+  --tw-gradient-to: #020204  var(--tw-gradient-to-position) !important;
 }
 
 .from-purple-700 {
---tw-gradient-from: #020204  var(--tw-gradient-from-position);
+--tw-gradient-from: #020204  var(--tw-gradient-from-position) !important;;
 }
 
 
