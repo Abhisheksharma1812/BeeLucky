@@ -40,7 +40,7 @@ function Home() {
         <div
           className="w-full h-16 px-4 flex items-center justify-between 
                   bg-gradient-to-r from-purple-700 via-purple-800 to-indigo-900 
-                  rounded-b-2xl shadow-lg relative"
+                   shadow-lg relative"
         >
           {/* Left Section */}
           <div className="flex items-center space-x-3">
@@ -59,7 +59,7 @@ function Home() {
 
           {/* Center Logo with Diamond Shape */}
 
-          <div className="myDiv absolute left-1/2 -translate-x-1/2 top-0 translate-y-[70%]">
+          <div className="myDiv  top-0 translate-y-[70%]">
             <div
               className="w-60 h-10 bg-gradient-to-r from-purple-700 via-purple-800 to-indigo-900
                   flex items-center justify-center text-green-400 
