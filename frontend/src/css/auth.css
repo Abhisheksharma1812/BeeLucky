@@ -48,16 +48,6 @@
 
 
 
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #ff4081, #ff9800);
-  color: #fff;
-  text-align: center;
-  min-height: 100vh;
-}
-
 .home-container {
   display: flex;
   flex-direction: column;
@@ -342,13 +332,12 @@ body {
  
 .clip-diamond {
   clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+  outline: 5px solid red; /* won't follow exact polygon edges */
 }
-
-
 
 .myDiv {
   width: 289px;
-  height: 150px;
+  height: 156px;
   border-top: 1px solid #6b21a8 ; /* Full top border */
   position: sticky;
 }

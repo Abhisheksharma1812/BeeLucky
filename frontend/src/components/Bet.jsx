@@ -21,7 +21,7 @@ function PriceSelect({
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+      <div className="flex flex-col items-center justify-center text-white">
         <h2 className="text-2xl font-bold mb-6">Select Your Bet Amount</h2>
 
         {/* Price options */}

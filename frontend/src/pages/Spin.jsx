@@ -7,8 +7,9 @@ function Spin() {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <div className="spin-container">
-      <h2 className="game-title">Spin The Wheel</h2>
+    <div className="spin-container bg-gradient-to-r from-purple-700 via-purple-800 to-indigo-900 
+     text-white">
+      <h2 className="game-title text-center text-7xl font-bold">Spin The Wheel</h2>
 
       <Wheel
         selectedPrice={selectedPrice}
