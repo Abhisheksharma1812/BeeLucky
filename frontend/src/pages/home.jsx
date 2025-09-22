@@ -148,8 +148,6 @@ function Home() {
           Download Now 🎮 
         </button>
 
-
-        <InstallButton />  
       </motion.div>
 
 
