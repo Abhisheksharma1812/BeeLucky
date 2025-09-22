@@ -138,7 +138,7 @@ function Home() {
         </p>
 
         {/* Call-to-action styled like neon button */}
-        <button
+      {/*   <button
           whileHover={{ scale: 1.1 }}
           className="mt-6 px-6 py-3 text-lg font-bold text-white-900 
                      bg-transparent  bg-clip-padding border-2 border-yellow-400 rounded-xl shadow-lg
@@ -146,8 +146,10 @@ function Home() {
                      drop-shadow-[0_0_15px_#facc15]"
         >
           Download Now 🎮 
-        </button>
+        </button> */}
 
+
+        <InstallButton />  
       </motion.div>
 
 

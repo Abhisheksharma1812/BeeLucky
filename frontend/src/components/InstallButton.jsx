@@ -35,15 +35,11 @@ function InstallButton() {
       {showButton && (
         <button
           onClick={handleInstallClick}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#2563eb",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            marginTop: "20px"
-          }}
+       whileHover={{ scale: 1.1 }}
+          className="mt-6 px-6 py-3 text-lg font-bold text-white-900 
+                     bg-transparent  bg-clip-padding border-2 border-yellow-400 rounded-xl shadow-lg
+                     hover:bg-yellow-300 transition-all
+                     drop-shadow-[0_0_15px_#facc15]"
         >
           📲 Install App
         </button>
