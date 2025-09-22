@@ -25,12 +25,33 @@ import Faq from "../components/Faq";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 function Home() {
-      const settings = {
-    dots: true,
+  /*     const settings = {
+   // dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-  };
+  //  speed: 2000,
+   // autoplaySpeed: 2000,
+    cssMode: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }; */
+
+
   const games = [
     { title: "Spin Wheel", icon: <Gamepad2 className="w-10 h-10" /> },
     { title: "Dice Roll", icon: <Dice1 className="w-10 h-10" /> },
@@ -102,8 +123,8 @@ function Home() {
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
         loop
+        //autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
        <SwiperSlide>
   <div
