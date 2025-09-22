@@ -49,14 +49,23 @@ function PriceSelect({
           </p>
         )}
 
-        {/* Input field */}
-        <input
-          type="number"
-          placeholder="Enter custom amount"
-          className="mb-6 px-4 py-2 rounded-2xl bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          onChange={(e) => setSelectedPrice(Number(e.target.value))}
-        />
+<input
+  type="number"
+  placeholder="Enter custom amount"
+  min={500}
+  max={10000}
+  className="mb-6 px-4 py-2 rounded-2xl bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+  onChange={(e) => {
+    let value = Number(e.target.value);
 
+    // prevent negative or values outside range
+    if (value < 1) value = 500;
+    if (value > 10000) value = 10000;
+
+    e.target.value = value; // update input field
+    setSelectedPrice(value); // update state
+  }}
+/>
         {/* 
       <button
          onClick={handlePlaceBet}

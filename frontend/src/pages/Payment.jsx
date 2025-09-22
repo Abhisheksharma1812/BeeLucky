@@ -1,38 +1,25 @@
- import { QRCodeCanvas } from "qrcode.react";
-
-export default function PaymentQR() {
- const upiString = `upi://pay?pa=abhishekprinja24-1@okaxis&pn=Abhishek&am=200&cu=INR&tn=TXN-${Date.now()}`;
-
-  return (
-    <div className="flex flex-col items-center p-4">
-      <h2 className="text-lg font-bold mb-2">Pay with UPI</h2>
-      <QRCodeCanvas value={upiString} size={200} />
-      <p className="mt-2">Scan to pay via GPay / Paytm</p>
-    </div>
-  );
-}
-
-
-
-/* import { useState, useEffect } from "react";
+ import React from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
-export default function TimedPaymentQR() {
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
-  const upiString = `upi://pay?pa=abhishekprinja24-1@okaxis&pn=Abhishek&am=200&cu=INR&tn=TXN-${Date.now()}`;
+export default function PaymentQR() {
+  // replace with your UPI details
+  const upiId = "abhishekprinja24-1@okaxis";
+  const name = "Abhi";
+  const amount = "1"; // optional, can also keep blank
+  const note = "Payment for services";
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft((t) => (t > 0 ? t - 1 : 0));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
+    name
+  )}&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR`;
 
   return (
-    <div className="flex flex-col items-center">
-      <QRCodeCanvas value={upiString} size={200} />
-      <p className="mt-2">Expires in: {timeLeft}s</p>
+    <div className="bg-gradient-to-r from-purple-700 via-purple-800 to-indigo-900 min-h-screen flex items-center justify-center">
+    <div className="text-white" style=  {{ textAlign: "center", marginTop: "20px" }}>
+      <h2>Scan & Pay</h2>
+      <QRCodeCanvas class="mt-4" value={upiLink} size={150} />
+      <p style={{ marginTop: "10px" }}></p>
+    </div>
     </div>
   );
-}
- */
+} 
+
