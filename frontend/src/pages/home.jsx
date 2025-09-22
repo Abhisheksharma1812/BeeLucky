@@ -280,6 +280,8 @@ function Home() {
 
 
 
+  <InstallButton />
+
       <Faq />
 
       {/* Footer */}
