@@ -4,6 +4,7 @@ import { Dice1, DollarSign, Gamepad2, Star } from "lucide-react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
+import InstallButton from "../components/InstallButton";
 
 // Import Swiper styles
 import "swiper/css";
@@ -144,8 +145,11 @@ function Home() {
                      hover:bg-yellow-300 transition-all
                      drop-shadow-[0_0_15px_#facc15]"
         >
-          Download Now 🎮
+          Download Now 🎮 
         </button>
+
+
+        <InstallButton />
       </motion.div>
 
 

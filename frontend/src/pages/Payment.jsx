@@ -8,7 +8,7 @@ export default function PaymentQR() {
   const amount = "1"; // optional, can also keep blank
   const note = "Payment for services";
 
-  const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
+  const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent( 
     name
   )}&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR`;
 
