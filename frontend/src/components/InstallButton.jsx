@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
- 
+   
 function InstallButton() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [showButton, setShowButton] = useState(false);

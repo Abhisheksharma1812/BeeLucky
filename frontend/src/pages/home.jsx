@@ -149,7 +149,7 @@ function Home() {
         </button>
 
 
-        <InstallButton />
+        <InstallButton />  
       </motion.div>
 
 
