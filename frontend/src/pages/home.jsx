@@ -158,7 +158,7 @@ function Home() {
           to win big prizes today!
         </p>
 
-        {/* Call-to-action styled like neon button */}
+        {/* Call-to-action styled like neon button 
         <button
           whileHover={{ scale: 1.1 }}
           className="mt-6 px-6 py-3 text-lg font-bold text-white-900 
@@ -168,7 +168,7 @@ function Home() {
         >
           Download Now 🎮 
         </button>
-
+*/}
 
         <InstallButton />
       </motion.div>
