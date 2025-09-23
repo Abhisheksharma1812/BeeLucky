@@ -8,16 +8,16 @@ function InstallButton() {
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);  // Save the event
-      setShowButton(true);   // Show button when app is installable
+      //setShowButton(true);   // Show button when app is installable
     };
 
     window.addEventListener("beforeinstallprompt", handler);
 
-    return () => window.removeEventListener("beforeinstallprompt", handler);
+   // return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
+    //if (!deferredPrompt) return;
     deferredPrompt.prompt(); // Show the install popup
 
     const choice = await deferredPrompt.userChoice;
