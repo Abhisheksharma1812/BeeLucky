@@ -26,7 +26,7 @@ export default defineConfig({
         theme_color: '#000000',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/frontend/',
+        start_url: './',
         icons: [
           {
             src: '/spinner-icon.png',
