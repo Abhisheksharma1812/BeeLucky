@@ -8,7 +8,7 @@ function InstallButton() {
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);  // Save the event
-      setShowButton(true);   // Show button when app is installable
+      setShowButton(false);   // Show button when app is installable
     };
 
     window.addEventListener("beforeinstallprompt", handler);
