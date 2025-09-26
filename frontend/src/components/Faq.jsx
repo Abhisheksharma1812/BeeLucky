@@ -28,36 +28,43 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="text-white py-12 px-6 md:px-20">
-<div class="grid grid-cols-2 gap-4">
-        <div className=" mx-auto text-center">
-      <h1 className="text-6xl font-bold mb-8">Frequently Asked Questions</h1>
+    <section id="faq"  className="text-white relative    py-12 px-6 md:px-20">
+      {/* Responsive grid: 1 col on mobile, 2 cols on md+ */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+        {/* Left Side: Title */}
+        <div className="text-center md:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            Frequently Asked Questions
+          </h1>
         </div>
 
-
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="border-b border-gray-700 pb-4 cursor-pointer"
-          >
+        {/* Right Side: FAQ List */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
             <div
-              className="flex justify-between items-center"
-              onClick={() => toggleFAQ(index)}
+              key={index}
+              className="border-b border-gray-700 pb-4 cursor-pointer"
             >
-              <h3 className="text-lg font-medium">{faq.question}</h3>
-              <span className="text-2xl">
-                {openIndex === index ? "−" : "+"}
-              </span>
+              <div
+                className="flex justify-between items-center"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h3 className="text-base sm:text-lg md:text-xl font-medium">
+                  {faq.question}
+                </h3>
+                <span className="text-xl sm:text-2xl">
+                  {openIndex === index ? "−" : "+"}
+                </span>
+              </div>
+
+              {openIndex === index && (
+                <p className="mt-2 text-gray-400 text-sm sm:text-base">
+                  {faq.answer}
+                </p>
+              )}
             </div>
-
-            {openIndex === index && (
-              <p className="mt-2 text-gray-400">{faq.answer}</p>
-            )}
-          </div>
-        ))}
-      </div>
-
+          ))}
+        </div>
       </div>
     </section>
   );

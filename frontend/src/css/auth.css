@@ -385,3 +385,9 @@
   background: #333;
   color: white;
 }
+
+
+
+html {
+  scroll-behavior: smooth;
+}
