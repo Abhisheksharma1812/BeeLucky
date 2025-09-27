@@ -22,6 +22,7 @@ import Stats from "../components/Stats";
 import Blog from "../components/Blog";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 // Import required modules
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -29,7 +30,9 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 function Home() {
   return (
     <div className="bg-gradient-to-r from-purple-700 via-purple-800 to-indigo-900">
-      <header
+
+      <Header />
+    {/*   <header
         className="bg-gray-950   overflow-visible "
         style={{ position: "relative", zIndex: 2 }}
       >
@@ -38,10 +41,9 @@ function Home() {
                   bg-gradient-to-r from-purple-700 via-purple-800 to-indigo-900 
                    shadow-lg relative"
         >
-          {/* Left Section */}
+        
           <div className="flex items-center space-x-3">
-            {/* add icons or menu later */}
-            <nav className="left-navbar">
+                     <nav className="left-navbar">
               <ul id="menu">
                 <li>
                   <a href="#home">Home</a>
@@ -56,7 +58,7 @@ function Home() {
             </nav>
           </div>
 
-          {/* Center Logo with Diamond Shape */}
+          
 
           <div className="myDiv  top-0 translate-y-[70%]">
             <div
@@ -69,9 +71,9 @@ function Home() {
             </div>
           </div>
 
-          {/* Right Section */}
+       
           <div className="flex items-center space-x-3">
-            {/* add buttons/profile later */}
+           
             <nav className="right-navbar">
               <ul id="menu">
                 <li>
@@ -87,7 +89,7 @@ function Home() {
             </nav>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Swiper Component */}
 

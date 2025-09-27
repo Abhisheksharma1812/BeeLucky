@@ -1,20 +1,20 @@
 export default function BlogSection() {
   const blogs = [
     {
-      title: "Top 10 RPG Games of 2025",
-      img: "/images/blog1.jpg",
+      title: "Spin the Wheel: Test Your Luck & Win Big!",
+      img: "/images/spinWin.png",
       date: "Sept 20, 2025",
-      desc: "Discover the most immersive role-playing adventures that are taking over the gaming world this year.",
+      desc: "Looking for a quick burst of excitement? Our Spin Wheel game gives you the thrill of instant rewards with just one click.",
     },
     {
-      title: "Esports Tournament Highlights",
-      img: "/images/blog2.jpg",
+      title: "Roll the Dice: A Classic Game with Endless Fun",
+      img: "/images/rollDice.png",
       date: "Sept 18, 2025",
-      desc: "Catch up on the biggest plays, shocking upsets, and champion teams from this month’s esports battles.",
+      desc: "Roll your way into surprise multipliers, double your wins, or risk it all for bigger payouts.",
     },
     {
       title: "Upcoming Game Releases",
-      img: "/images/blog3.jpg",
+      img: "/images/upComing.png",
       date: "Sept 15, 2025",
       desc: "From sci-fi shooters to fantasy quests, here’s a sneak peek into the hottest titles coming soon.",
     },

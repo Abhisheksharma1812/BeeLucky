@@ -2,21 +2,21 @@ import React, { useState } from "react";
 
 const faqs = [
   {
-    question: "What's the best thing about Switzerland?",
+    question: "How does the Mines Game work?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "You click tiles to uncover safe spots. Each safe spot increases your reward, but hitting a mine ends the game instantly.",
   },
   {
-    question: "How do you make holy water?",
-    answer: "You boil the hell out of it.",
+    question: "Where to gaming with crypto?",
+    answer: "Most gaming sites do not accept crypto as a form of payment but we do.",
   },
   {
-    question: "What do you call someone with no body and no nose?",
-    answer: "Nobody knows.",
+    question: "Are these games based on luck or skill?",
+    answer: "Spin Wheel & Dice are mostly luck-based, while Mines requires a mix of strategy and risk management.",
   },
   {
-    question: "Why can't you hear a pterodactyl go to the bathroom?",
-    answer: "Because the 'P' is silent.",
+    question: "Can I play these games on mobile?",
+    answer: "Yes! All our games are mobile-friendly and responsive, so you can enjoy them anywhere.",
   },
 ];
 
