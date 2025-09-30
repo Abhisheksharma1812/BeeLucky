@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // icons (install lucide-react or swap with any)
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gray-900 text-white shadow-md">
+    <header className="relative  bg-gray-900 text-white shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
-        {/* Left Menus */}
+        {/* Left Menus (Desktop) */}
         <nav className="hidden md:flex space-x-6">
           <a href="#" className="hover:text-pink-400 transition">Home</a>
           <a href="#" className="hover:text-pink-400 transition">Games</a>
@@ -20,25 +19,37 @@ export default function Header() {
           GameVerse
         </div>
 
-        {/* Right Menus */}
+        {/* Right Menus (Desktop) */}
         <nav className="hidden md:flex space-x-6">
           <a href="#" className="hover:text-pink-400 transition">Esports</a>
           <a href="#" className="hover:text-pink-400 transition">Community</a>
           <a href="#" className="hover:text-pink-400 transition">About</a>
         </nav>
 
-        {/* Mobile Button */}
-        <button 
+        {/* Mobile Toggle Button */}
+        <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {/* Hamburger Icon */}
+          {!isOpen && (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+          {/* X Icon */}
+          {isOpen && (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          )}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-800 px-6 py-4 space-y-4 text-center">
+        <div className="md:hidden absolute top-full left-0 w-full bg-gray-800 z-40 px-6 py-4 space-y-4 text-center">
+
           <a href="#" className="block hover:text-pink-400">Home</a>
           <a href="#" className="block hover:text-pink-400">Games</a>
           <a href="#" className="block hover:text-pink-400">Reviews</a>

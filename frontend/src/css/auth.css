@@ -330,11 +330,15 @@
   transform: rotate(45deg);
 } */
  
-.clip-diamond {
+ .clip-diamond {
   clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
-  outline: 5px solid red; /* won't follow exact polygon edges */
+  outline: 5px solid red; 
 }
 
+/* .clip-diamond {
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+} */
+ 
 .myDiv {
   width: 289px;
   height: 156px;

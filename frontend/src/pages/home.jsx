@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import InstallButton from "../components/InstallButton";
 
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 import heroImg from "../images/pLandscape.png";
 import imgCoin from "../images/imageCoin.png";
@@ -31,7 +33,6 @@ function Home() {
   return (
     <div className="bg-gradient-to-r from-purple-700 via-purple-800 to-indigo-900">
 
-      <Header />
     {/*   <header
         className="bg-gray-950   overflow-visible "
         style={{ position: "relative", zIndex: 2 }}
@@ -93,170 +94,146 @@ function Home() {
 
       {/* Swiper Component */}
 
-      <div id="home" className="relative  h-[50vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-[100vh]">
-        <Swiper
-          className=""
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 1 },
-            1024: { slidesPerView: 1 },
-          }}
-          navigation
-          pagination={{ clickable: true }}
-          loop
-          //autoplay={{ delay: 3000, disableOnInteraction: false }}
-        >
-          <SwiperSlide>
-            <div
-              className=" flex items-center justify-center bg-gradient-to-r from-purple-700 to-pink-600 text-white"
-              style={{
-                backgroundImage: `url(${heroImg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="flex flex-col md:flex-row w-full max-w-6xl items-center justify-between gap-6">
-                {/* Left Side: Text */}
-                <motion.div
-                  initial={{ opacity: 0, x: -100 }}
-                  //whileInView={{ opacity: 1, y: 0 }}
-                  //  viewport={{ once: false, amount: 0.6 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 2 }}
-                  lassName="text-center md:text-left"
-                >
-                  {/* Heading with neon glow */}
-                  <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-yellow-400 drop-shadow-[0_0_20px_#9a0094]">
-                    Win Big With Us!
-                  </h2>
+       <div
+      id="home"
+      className="relative h-[50vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-[100vh] "
+    >
+      <Swiper
+        className="w-full h-full"
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        loop
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+      >
+        {/* Slide 1 */}
+        <SwiperSlide>
+          <div
+            className="flex h-full items-center justify-center text-white bg-gradient-to-r from-purple-700 to-pink-600"
+            style={{
+              backgroundImage: `url(${heroImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="flex flex-col md:flex-row w-full max-w-6xl items-center justify-between gap-6 px-4">
+              {/* Left Side: Text */}
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2 }}
+                className="text-center md:text-left"
+              >
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-yellow-400 drop-shadow-[0_0_20px_#9a0094]">
+                  Win Big With Us!
+                </h2>
 
-                  {/* Subtext softer but still visible */}
-                  <p className="text-base sm:text-lg md:text-xl max-w-md font-bold text-white-230 drop-shadow-[0_0_10px_#9a0094]">
-                    Play and enjoy exciting rewards. Spin the wheel and grab
-                    your chance to win big prizes today!
-                  </p>
+                <p className="text-base sm:text-lg md:text-xl max-w-md mx-auto md:mx-0 font-bold text-gray-100 drop-shadow-[0_0_10px_#9a0094]">
+                  Play and enjoy exciting rewards. Spin the wheel and grab your
+                  chance to win big prizes today!
+                </p>
 
-                  {/* Call-to-action styled like neon button 
-        <button
-          whileHover={{ scale: 1.1 }}
-          className="mt-6 px-6 py-3 text-lg font-bold text-white-900 
-                     bg-transparent  bg-clip-padding border-2 border-yellow-400 rounded-xl shadow-lg
-                     hover:bg-yellow-300 transition-all
-                     drop-shadow-[0_0_15px_#facc15]"
-        >
-          Download Now 🎮 
-        </button>
-*/}
-
+                <div className="mt-6">
                   <InstallButton />
-                </motion.div>
+                </div>
+              </motion.div>
 
-                {/* Right Side: Image */}
-                <motion.img
-                  src={Bwin}
-                  alt="Big Win"
-                  className="w-40 sm:w-64 md:w-[400px] lg:w-[600px] h-auto mx-auto md:mx-0"
-                  initial={{ opacity: 0, x: 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 2 }}
-                  style={{ width: "600px", height: "auto" }}
-                />
-              </div>
+              {/* Right Side: Image */}
+              <motion.img
+                src={Bwin}
+                alt="Big Win"
+                className="w-40 sm:w-64 md:w-[400px] lg:w-[600px] h-auto mx-auto md:mx-0 object-contain"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2 }}
+              />
             </div>
-          </SwiperSlide>
+          </div>
+        </SwiperSlide>
 
-          <SwiperSlide>
-            <div
-              className=" flex items-center justify-center bg-gradient-to-r from-purple-700 to-pink-600 text-white"
-              style={{
-                backgroundImage: `url(${cBack})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                height: "600px",
-              }}
-            >
-              <div className="flex w-full max-w-6xl items-center justify-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.6 }}
-                  transition={{ duration: 2 }}
-                  className="flex flex-col items-center text-center"
+        {/* Slide 2 */}
+        <SwiperSlide>
+          <div
+            className="flex h-full items-center justify-center text-white bg-gradient-to-r from-purple-700 to-pink-600"
+            style={{
+              backgroundImage: `url(${cBack})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="flex w-full max-w-6xl items-center justify-center px-4">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.6 }}
+                transition={{ duration: 2 }}
+                className="flex flex-col items-center text-center"
+              >
+                <h2 className="sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-yellow-400 drop-shadow-[0_0_15px_#a000ff]">
+                  Daily Jackpots 🎰
+                </h2>
+
+                <p className="sm:text-lg md:text-xl max-w-md font-bold text-gray-100 mt-4">
+                  Don’t miss our special daily jackpots. Bigger rewards, more
+                  winners, more fun!
+                </p>
+
+                <button
+                  className="mt-6 px-6 py-3 text-lg font-bold text-white bg-transparent border-2 border-yellow-400 rounded-xl shadow-lg hover:bg-yellow-300 transition-all drop-shadow-[0_0_15px_#facc15]"
                 >
-                  <h2 className="sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-yellow-400 mt-0 drop-shadow-[0_0_15px_#a000ff]">
-                    Daily Jackpots 🎰
-                  </h2>
-
-                  <p className="sm:text-lg md:text-xl max-w-md  font-bold text-gray-100 mt-4">
-                    Don’t miss our special daily jackpots. Bigger rewards, more
-                    winners, more fun!
-                  </p>
-
-                  <button
-                    className="mt-6 px-6 py-3 text-lg font-bold text-white-900 
-                            rounded-xl shadow-lg 
-                           hover:bg-cyan-300 transition-all 
-                           drop-shadow-[0_0_15px_#d2d5d6]"
-                  >
-                    Get your pass ⚡
-                  </button>
-                </motion.div>
-              </div>
+                  Get your pass ⚡
+                </button>
+              </motion.div>
             </div>
-          </SwiperSlide>
+          </div>
+        </SwiperSlide>
 
-          <SwiperSlide>
-            <div
-              className="flex items-center justify-center bg-gradient-to-r from-purple-700 to-pink-600 text-white"
-              style={{
-                //backgroundImage: `url(${heroImg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                height: "600px",
-              }}
-            >
-              <div className="flex w-full max-w-6xl items-center justify-between">
-                {/* Left Side: Text */}
-                <motion.div
-                  initial={{ opacity: 0, x: -100 }}
-                  //whileInView={{ opacity: 1, y: 0 }}
-                  //  viewport={{ once: false, amount: 0.6 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 2 }}
-                  className="text-left"
-                >
-                  {/* Heading with neon glow */}
-                  <h2 className="text-7xl font-bold mb-4 text-yellow-400 drop-shadow-[0_0_20px_#9a0094]">
-                    Next Level Crypto Gaming Coming Soon!
-                  </h2>
+        {/* Slide 3 */}
+        <SwiperSlide>
+          <div
+            className="flex h-full items-center justify-center text-white bg-gradient-to-r from-purple-700 to-pink-600"
+            style={{
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="flex flex-col md:flex-row w-full max-w-6xl items-center justify-between px-4">
+              {/* Left Side: Text */}
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2 }}
+                className="text-center md:text-left"
+              >
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-yellow-400 drop-shadow-[0_0_20px_#9a0094]">
+                  Next Level Crypto Gaming Coming Soon!
+                </h2>
 
-                  {/* Subtext softer but still visible */}
-                  <p className="text-lg max-w-md  font-bold text-white-230 drop-shadow-[0_0_10px_#9a0094]">
-                    Play and enjoy exciting rewards. Spin the wheel and grab
-                    your chance to win big prizes today!
-                  </p>
-                </motion.div>
+                <p className="text-base sm:text-lg md:text-xl max-w-md mx-auto md:mx-0 font-bold text-gray-100 drop-shadow-[0_0_10px_#9a0094]">
+                  Play and enjoy exciting rewards. Spin the wheel and grab your
+                  chance to win big prizes today!
+                </p>
+              </motion.div>
 
-                {/* Right Side: Image */}
-                <motion.img
-                  src={imgCoin}
-                  alt="Big Win"
-                  initial={{ opacity: 0, x: 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 2 }}
-                  style={{ width: "600px", height: "auto" }}
-                />
-              </div>
+              {/* Right Side: Image */}
+              <motion.img
+                src={imgCoin}
+                alt="Crypto Coin"
+                className="w-40 sm:w-64 md:w-[400px] lg:w-[600px] h-auto mx-auto md:mx-0 object-contain"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2 }}
+              />
             </div>
-          </SwiperSlide>
-        </Swiper>
-      </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
 
       {/* Home Section */}
 
