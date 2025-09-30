@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="position-relative bg-gradient-to-r from-purple-700 via-indigo-800 to-black text-white py-16 px-6 md:px-12 lg:px-20">
+    <section id="about" className="position-relative text-white py-16 px-6 md:px-12 lg:px-20">
       {/* Background Effect */}
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">

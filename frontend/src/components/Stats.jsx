@@ -7,7 +7,7 @@ export default function CommunitySection() {
   ];
 
   return (
-    <section id="stats" className="bg-gradient-to-r  text-white py-16 px-6">
+    <section id="stats" className="bg-gradient-to-r   text-white py-20 px-6">
       <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
         {stats.map((s, i) => (
           <div key={i} className="p-6 bg-black/30 rounded-2xl shadow-lg">

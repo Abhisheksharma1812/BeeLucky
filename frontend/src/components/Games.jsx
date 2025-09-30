@@ -9,7 +9,7 @@ export default function Games() {
   ];
 
     return (  
-  <div id="games" className="relative  mt-10 p-8 min-h-screen text-white">
+  <div id="games" className="relative from-black-700 via-indigo-800 to-black-700  mt-10 p-8 min-h-screen text-white">
     <h2 className="text-2xl text-white text-center font-bold mb-4">
       Easy way for crypto Play{" "}
     </h2>
