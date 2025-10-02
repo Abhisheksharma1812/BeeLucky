@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Bet from "../components/Bet";
 
-export default function Wheel({ selectedPrice, showPopup, setShowPopup }) {
+export default function Wheel({ selectedPrice, setSelectedPrice, showPopup, setShowPopup }) {
   const prizes = [
     "0.1x",
     "1.3x",
@@ -42,7 +41,7 @@ export default function Wheel({ selectedPrice, showPopup, setShowPopup }) {
     if (spinning) return;
 
     setSpinning(true);
-
+    
     // const sliceDeg = 360 / prizes.length;
     const sliceDeg = 360 / prizes.length;
     const labelOffset = -90; // shift so top pointer is reference
@@ -63,12 +62,14 @@ export default function Wheel({ selectedPrice, showPopup, setShowPopup }) {
 
     const fullSpins = 5 + Math.floor(Math.random() * 3);
     const newRotation = rotation + fullSpins * 360 + delta;
-
+ 
     setRotation(newRotation);
   };
   const handleEnd = () => {
     if (!spinning) return;
     setSpinning(false);
+    
+    setSelectedPrice(null);
     if (targetIndex !== null) setResult(prizes[targetIndex]);
   };
 

@@ -3,8 +3,8 @@ import { QRCodeCanvas } from "qrcode.react";
 
 export default function PaymentQR() {
   // replace with your UPI details
-  const upiId = "abhishekprinja24-1@okaxis";
-  const name = "Abhi";
+  const upiId = "paytmqr5ojr4q@ptys-emp";
+  const name = "BeeLucky";
   const amount = "1"; // optional, can also keep blank
   const note = "Payment for services";
 

@@ -13,6 +13,7 @@ function Spin() {
 
       <Wheel
         selectedPrice={selectedPrice}
+        setSelectedPrice={setSelectedPrice}   // ✅ pass down
         showPopup={showPopup}
         setShowPopup={setShowPopup}
       />

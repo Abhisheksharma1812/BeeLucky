@@ -9,9 +9,9 @@ export default function Header() {
         
         {/* Left Menus (Desktop) */}
         <nav className="hidden md:flex space-x-6">
-          <a href="#" className="hover:text-pink-400 transition">Home</a>
-          <a href="#" className="hover:text-pink-400 transition">Games</a>
-          <a href="#" className="hover:text-pink-400 transition">Reviews</a>
+          <a href="#home" className="hover:text-pink-400 transition">Home</a>
+          <a href="#games" className="hover:text-pink-400 transition">Games</a>
+          <a href="#about" className="hover:text-pink-400 transition">About</a>
         </nav>
 
         {/* Logo */}
@@ -21,9 +21,9 @@ export default function Header() {
 
         {/* Right Menus (Desktop) */}
         <nav className="hidden md:flex space-x-6">
-          <a href="#" className="hover:text-pink-400 transition">Esports</a>
-          <a href="#" className="hover:text-pink-400 transition">Community</a>
-          <a href="#" className="hover:text-pink-400 transition">About</a>
+          <a href="#faq" className="hover:text-pink-400 transition">Faq</a>
+          <a href="#blog" className="hover:text-pink-400 transition">Blog</a>
+          <a href="#stats" className="hover:text-pink-400 transition">Stats</a>
         </nav>
 
         {/* Mobile Toggle Button */}
@@ -50,12 +50,12 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-gray-800 z-40 px-6 py-4 space-y-4 text-center">
 
-          <a href="#" className="block hover:text-pink-400">Home</a>
-          <a href="#" className="block hover:text-pink-400">Games</a>
-          <a href="#" className="block hover:text-pink-400">Reviews</a>
-          <a href="#" className="block hover:text-pink-400">Esports</a>
-          <a href="#" className="block hover:text-pink-400">Community</a>
-          <a href="#" className="block hover:text-pink-400">About</a>
+          <a href="#home" className="block hover:text-pink-400">Home</a>
+          <a href="#games" className="block hover:text-pink-400">Games</a>
+          <a href="#about" className="block hover:text-pink-400">About</a>
+          <a href="#faq" className="block hover:text-pink-400">FAQ</a>
+          <a href="#blog" className="block hover:text-pink-400">Blog</a>
+          <a href="#stats" className="block hover:text-pink-400">Stats</a>
         </div>
       )}
     </header>

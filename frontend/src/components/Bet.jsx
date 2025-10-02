@@ -52,14 +52,14 @@ function PriceSelect({
 <input
   type="number"
   placeholder="Enter custom amount"
-  min={500}
+  min={10}
   max={10000}
-  className="mb-6 px-4 py-2 rounded-2xl bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+  className="mb-6 px-4 py-2 w-1/5 rounded-2xl bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
   onChange={(e) => {
     let value = Number(e.target.value);
 
     // prevent negative or values outside range
-    if (value < 1) value = 500;
+    if (value < 1) value = 10;
     if (value > 10000) value = 10000;
 
     e.target.value = value; // update input field
