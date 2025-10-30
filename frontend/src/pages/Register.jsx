@@ -14,7 +14,7 @@ export default function Register() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      await axios.post(API + '/auth/register', { username, email, password })
+      await axios.post(API + '/register', { username, email, password })
       navigate('/login')
     } catch (err) {
       setMsg(err.response?.data?.msg || 'Registration failed')

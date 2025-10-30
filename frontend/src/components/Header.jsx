@@ -1,7 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+
+
+ const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // 🔹 Check if user is logged in
+  useEffect(() => {
+    const user = localStorage.getItem("user"); // or token
+    setIsLoggedIn(!!user);
+  }, [location]);
+
+  // 🔹 Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
+  // 🔹 Hide header on login/register pages
+  const hideHeader = ["/login", "/register", "/app"].includes(location.pathname);
+  if (hideHeader) return null; // ✅ after hooks
+
+
 
   return (
     <header className="relative  bg-gray-900 text-white shadow-md">
@@ -24,7 +49,19 @@ export default function Header() {
           <a href="#faq" className="hover:text-pink-400 transition">Faq</a>
           <a href="#blog" className="hover:text-pink-400 transition">Blog</a>
           <a href="#stats" className="hover:text-pink-400 transition">Stats</a>
+          
+                
+                    {/* 🔹 Show Logout only if logged in */}
+          {isLoggedIn && (
+          <button
+            onClick={handleLogout}
+            className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white transition"
+          >
+            Logout
+          </button>
+          )}
         </nav>
+        
 
         {/* Mobile Toggle Button */}
         <button
@@ -56,6 +93,16 @@ export default function Header() {
           <a href="#faq" className="block hover:text-pink-400">FAQ</a>
           <a href="#blog" className="block hover:text-pink-400">Blog</a>
           <a href="#stats" className="block hover:text-pink-400">Stats</a>
+          
+                           {/* 🔹 Show Logout only if logged in */}
+          {isLoggedIn && (
+          <button
+            onClick={handleLogout}
+            className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white transition"
+          >
+            Logout
+          </button>
+          )}
         </div>
       )}
     </header>

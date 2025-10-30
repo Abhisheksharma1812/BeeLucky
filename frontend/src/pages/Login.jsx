@@ -14,7 +14,7 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      const res = await axios.post(API + '/auth/login', { email, password })
+      const res = await axios.post(API + '/login', { email, password })
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('user', JSON.stringify(res.data.user))
       navigate('/')
