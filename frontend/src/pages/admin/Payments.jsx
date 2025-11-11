@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function Payments() {
   const [payments, setPayments] = useState([]);
@@ -26,6 +27,79 @@ export default function Payments() {
     fetchPayments();
   }, []);
 
+
+    const toggleStatus = async ({ id, currentStatus }) => {
+    try {
+      const action = currentStatus === "pending" ? "completed" : "pending";
+
+      const result = await Swal.fire({
+        title: `Are you sure you want to ${action} this payment?`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "Cancel",
+      });
+
+      if (!result.isConfirmed) return;
+
+      const res = await axios.put(
+        `${API}/payment/${id}/status`,
+        { currentStatus: currentStatus },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      setPayments(
+        payments.map((u) => (u._id === id ? { ...u, status: res.data.status } : u))
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+  const approvePayment = async (id, amount) => {
+  if (!amount || amount <= 0) {
+    Swal.fire("Please enter a valid amount", "", "warning");
+    return;
+  }
+
+  try {
+    const confirm = await Swal.fire({
+      title: `Approve payment with ₹${amount}?`,
+      icon: "question",
+      showCancelButton: true,
+    });
+    if (!confirm.isConfirmed) return;
+
+    const res = await axios.put(
+      `${API}/payment/${id}/approve`,
+      { amount },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+
+    Swal.fire("Approved!", "Points assigned successfully", "success");
+    setPayments(
+      payments.map((p) =>
+        p._id === id ? { ...p, status: "completed" } : p
+      )
+    );
+  } catch (err) {
+    console.error(err);
+    Swal.fire("Error", "Failed to approve payment", "error");
+  }
+};
+
+
+  
+
   const openImage = (url) => setSelectedImage(url);
   const closePopup = () => setSelectedImage(null);
 
@@ -42,6 +116,7 @@ export default function Payments() {
             <th className="p-2 border-b">Media</th>
             <th className="p-2 border-b">Status</th>
             <th className="p-2 border-b">Date</th>
+            <th className="px-4 py-2 col-span-2 font-semibold text-gray-700">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -82,9 +157,9 @@ export default function Payments() {
 
               <td
                 className={`p-2 border-b font-semibold ${
-                  p.status === "success"
+                  p.status === "completed"
                     ? "text-green-600"
-                    : p.status === "failed"
+                    : p.status === "pending"
                     ? "text-red-600"
                     : "text-yellow-600"
                 }`}
@@ -92,9 +167,56 @@ export default function Payments() {
                 {p.status}
               </td>
 
-              <td className="p-2 border-b">
-                  {new Date(p.createdAt).toISOString().slice(0, 16).replace('T', ' ')}
-              </td>
+                <td className="p-2 border-b">
+                    {new Date(p.createdAt).toISOString().slice(0, 16).replace('T', ' ')}
+                </td>
+            <td className="p-2 border-b">
+              {p.status === "pending" ? (
+                <input
+                  type="number"
+                  placeholder="Enter amount"
+                  className="border rounded p-1 w-24"
+                  value={p.amount || ""}
+                  onChange={(e) =>
+                    setPayments(
+                      payments.map((u) =>
+                        u._id === p._id ? { ...u, amount: e.target.value } : u
+                      )
+                    )
+                  }
+                />
+              ) : (
+                <span>{p.amount}</span>
+              )}
+ 
+        <button
+          onClick={() => approvePayment(p._id, p.amount)}
+          disabled={p.status === "completed"}
+          className={`px-3 py-1 rounded ${
+            p.status === "pending"
+              ? "bg-green-600 text-white"
+              : "bg-gray-400 text-white cursor-not-allowed"
+          }`}
+        >
+          {p.status === "pending" ? "Approve" : "Approved"}
+        </button>
+      </td>
+
+            {/*      <td className="p-2">
+                  <button
+                    onClick={() =>
+                      toggleStatus({ id: p._id, currentStatus: p.status })
+                    }
+                    className={`px-3 py-1 rounded ${
+                      p.status === "pending"
+                        ? "bg-red-500 text-white"
+                        : "bg-green-500 text-white"
+                    }`}
+                  >
+                    {p.status === "pending" ? "completed" : "pending"}
+                  </button>
+
+                </td> */}
             </tr>
           ))}
         </tbody>

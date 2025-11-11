@@ -1,6 +1,13 @@
 import { Outlet, NavLink } from "react-router-dom";
 
 export default function AdminLayout() {
+
+    const handleLogout = () => {
+   // localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -56,6 +63,14 @@ export default function AdminLayout() {
                 Settings
               </NavLink>
             </li>
+
+               <li>
+              <NavLink className="block p-2 rounded hover:bg-gray-700"
+               onClick={handleLogout}  >
+                Logout
+              </NavLink>
+            </li>
+
           </ul>
         </nav>
       </aside>

@@ -1,23 +1,44 @@
-import React, { useState } from 'react'
+import React, { useContext , useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import "../css/auth.css";  // ✅ import here
+import { AuthContext } from "../context/AuthContext";
+
 
 const API = import.meta.env.VITE_API || 'http://localhost:4000/api'
+
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [msg, setMsg] = useState('')
   const navigate = useNavigate()
+  const { setUser } = useContext(AuthContext);
+
 
   async function handleSubmit(e) {
     e.preventDefault()
     try {
       const res = await axios.post(API + '/login', { email, password })
-      localStorage.setItem('token', res.data.token)
-      localStorage.setItem('user', JSON.stringify(res.data.user))
-      navigate('/')
+     // console.log("Login response:", res.data.user);   
+      localStorage.setItem('token', res.data.token);
+      setUser(res.data.user);
+     // localStorage.setItem('user', JSON.stringify(res.data.user))
+
+       // Call /me to fetch user data
+  const userRes = await axios.get(API + "/user", {
+    headers: {
+      Authorization: `Bearer ${res.data.token}`
+    }
+  }); 
+
+ // console.log(userRes.data.user);
+
+  setUser(userRes.data.user); // ✅ save user globally
+  if(userRes.data.user){
+    navigate('/');
+  }
+
     } catch (err) {
       setMsg(err.response?.data?.msg || 'Login failed')
     }
