@@ -9,8 +9,16 @@ const app = express();
 require('dotenv').config();
 
 // Middleware
-app.use(cors( { origin: "*",   credentials: true } ));
-
+app.use(
+  cors({
+    origin: [
+      "https://bee-lucky.vercel.app", // your frontend
+      "http://localhost:5173",        // for local dev
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 /* app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true
