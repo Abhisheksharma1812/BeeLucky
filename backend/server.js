@@ -9,7 +9,7 @@ const app = express();
 require('dotenv').config();
 
 // Middleware
-app.use(cors( { origin: "*", } ));
+app.use(cors( { origin: "*",   credentials: true } ));
 
 /* app.use(cors({
   origin: 'http://localhost:5173',
