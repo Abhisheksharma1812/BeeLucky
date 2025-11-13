@@ -9,20 +9,21 @@ const app = express();
 require('dotenv').config();
 
 // Middleware
-app.use(
+/* app.use(
   cors({
     origin: [
-      "https://bee-lucky.vercel.app", // your frontend
-      "http://localhost:5173",        // for local dev
+     "https://bee-lucky.vercel.app", // your frontend
+    "http://localhost:5173",   
+      "*"     // for local dev
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
-);
-/* app.use(cors({
-  origin: 'http://localhost:5173',
+); */
+ app.use(cors({
+  origin: '*',
   credentials: true
-})); */
+})); 
 app.use(express.json());
 app.use("/uploads", express.static("uploads")); // serve images
 
