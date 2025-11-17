@@ -8,22 +8,20 @@ const app = express();
 
 require('dotenv').config();
 
-// Middleware
-/* app.use(
+const allowedOrigins = [
+  'https://bee-lucky.vercel.app', // Vercel frontend
+  'http://localhost:5173',        // local dev
+];
+
+app.use(
   cors({
-    origin: [
-     "https://bee-lucky.vercel.app", // your frontend
-    "http://localhost:5173",   
-      "*"     // for local dev
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: false, // you use Bearer tokens, not cookies
   })
-); */
- app.use(cors({
-  origin: '*',
-  credentials: true
-})); 
+);
+
 app.use(express.json());
 app.use("/uploads", express.static("uploads")); // serve images
 

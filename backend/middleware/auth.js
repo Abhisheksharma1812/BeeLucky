@@ -10,9 +10,6 @@ module.exports = async  function (req, res, next) {
     const decoded = jwt.verify(token.replace("Bearer ", ""), JWT_SECRET);
     //console.log( "decoded token:", decoded);
     req.user = decoded;
-     // req.user = await User.findById(decoded.id).select("-password");
-
-
     next();
   } catch (err) {
     res.status(401).json({ msg: "Token is not valid" });
