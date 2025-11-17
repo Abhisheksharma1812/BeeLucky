@@ -3,7 +3,6 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const auth = require("../middleware/auth");
-const cors = require('cors');
 const {
   getAllUsers,
   getAllPayments,
@@ -21,9 +20,6 @@ const {
 } = require("../controllers/userController");
 
 const router = express.Router();
-const app = express();
-app.use(cors( { origin: "*", } ));
-app.use(express.json());
 
 // ---------------------- Multer config ----------------------
 const storage = multer.diskStorage({
