@@ -34,7 +34,7 @@ mongoose.connect(MONGO, {useNewUrlParser:true, useUnifiedTopology:true})
 
   
 // Mount API routes BEFORE static/catch-all so API requests aren't intercepted
-const PORT = 4000;
+const PORT = 5000;
 app.use('/api', authRoutes);
 
 // Serve the static files from the React app

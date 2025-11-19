@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const AuthContext = createContext();
 
-const API = import.meta.env.VITE_API || 'http://localhost:4000/api'
+const API = import.meta.env.VITE_API || 'http://localhost:5000/api'
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Global stored user
