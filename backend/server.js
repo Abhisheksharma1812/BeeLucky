@@ -10,7 +10,9 @@ require('dotenv').config();
 
 const allowedOrigins = [
   'https://bee-lucky.vercel.app', // Vercel frontend
-  'http://localhost:5173',        // local dev
+  'http://localhost:5173', // local dev
+  "https://bee-lucky-2qt5ujwno-abhi1812s-projects.vercel.app" // another vercel link
+       
 ];
 
 app.use(
@@ -18,7 +20,7 @@ app.use(
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: false, // you use Bearer tokens, not cookies
+    credentials: true, // you use Bearer tokens, not cookies
   })
 );
 
