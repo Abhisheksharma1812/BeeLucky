@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
     "axios": "^1.12.2",
     "framer-motion": "^12.23.13",
     "jwt-decode": "^4.0.0",
@@ -20,10 +21,12 @@
     "sweetalert2": "^11.26.3",
     "swiper": "^12.0.1",
     "vite": "^4.5.14",
-    "@vitejs/plugin-react": "^4.0.0",
     "vite-plugin-pwa": "^1.0.3"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "debug": "^4.3.6"
   }
 }
