@@ -19,7 +19,7 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      const res = await axios.post(API + '/login', { email, password })
+      const res = await axios.post('https://bee-lucky-backend.vercel.app/api/login', { email, password })
      // console.log("Login response:", res.data.user);   
       localStorage.setItem('token', res.data.token);
       setUser(res.data.user);
